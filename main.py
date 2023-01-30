@@ -15,10 +15,19 @@ graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
 # Config parameters for Pixela graph
 graph_config = {
-    "id": "Graph1",
+    "id": "graph1",
     "name": "Meditation graph",
     "unit": "min",
     "type": "int",
     "color": "shibafu"
 }
-requests.post()
+
+# Headers param for secure use of token (won't be displayed publicly via URL bar etc.):
+headers = {
+    "X-USER-TOKEN": TOKEN
+}
+
+# Create Pixela graph online:
+response = requests.post(
+    url=graph_endpoint, json=graph_config, headers=headers)
+print(response.text)
