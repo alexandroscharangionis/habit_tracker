@@ -43,8 +43,8 @@ pixel_creation_params = {
 }
 
 # Create pixel on existing Pixela graph:
-# pixel_response = requests.post(
-#     url=pixel_creation_endpoint, json=pixel_creation_params, headers=headers)
+pixel_response = requests.post(
+    url=pixel_creation_endpoint, json=pixel_creation_params, headers=headers)
 
 # Update pixel on existing Pixela graph:
 update_pixel_endpoint = f"{pixel_creation_endpoint}/20230129"
@@ -54,3 +54,6 @@ update_params = {
 update_response = requests.put(
     url=update_pixel_endpoint, json=update_params, headers=headers)
 print(update_response.text)
+
+# Delete pixel:
+delete_response = requests.delete(url=update_pixel_endpoint, headers=headers)
