@@ -30,4 +30,15 @@ headers = {
 # Create Pixela graph online:
 response = requests.post(
     url=graph_endpoint, json=graph_config, headers=headers)
-print(response.text)
+
+# Pixel creation endpoint:
+pixel_creation_endpoint = f"{graph_endpoint}/graph1"
+pixel_creation_params = {
+    "date": "20230130",
+    "quantity": "12"
+}
+
+# Create pixel on existing Pixela graph:
+pixel_response = requests.post(
+    url=pixel_creation_endpoint, json=pixel_creation_params, headers=headers)
+print(pixel_response.text)
