@@ -1,1 +1,1 @@
-# habit_tracker
+# Programmatic Pixela habit tracker using Pixela API
