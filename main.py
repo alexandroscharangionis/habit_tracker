@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 USERNAME = "alexandroscharangionis"
 TOKEN = "abcde12345"
@@ -33,12 +34,14 @@ response = requests.post(
 
 # Pixel creation endpoint:
 pixel_creation_endpoint = f"{graph_endpoint}/graph1"
+
+today = datetime.now()
+
 pixel_creation_params = {
-    "date": "20230130",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "12"
 }
 
 # Create pixel on existing Pixela graph:
-pixel_response = requests.post(
-    url=pixel_creation_endpoint, json=pixel_creation_params, headers=headers)
-print(pixel_response.text)
+# pixel_response = requests.post(
+#     url=pixel_creation_endpoint, json=pixel_creation_params, headers=headers)
